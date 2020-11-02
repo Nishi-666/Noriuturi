@@ -1,0 +1,7 @@
+#ifdef CONFIG_SYS_
+#define CONFIG_SYS_
+#endif // CONFIG_SYS_
+#define SCREEN_WHIDTH (1280)//スクリーン幅
+#define SCREEN_HEIGHT (720)//スクリーン高さ
+#define FVF_VERTEX3D (D3DFVF_XYZRHW|D3DFVF_DIFFUSE|D3DFVF_TEX1)
+
