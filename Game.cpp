@@ -17,7 +17,7 @@
 #include "CharOBJ.h"
 #include "Player.h"
 #include "NoriUturi.h"
-#include "NoriUturi.h"
+#include "StageSet.h"
 static float f=0;
 static int frame=0;
 int state=1;
@@ -58,6 +58,8 @@ bool Game_initialize(bool N98)
 	Triangle_initialize();
 	KeyLogger_initialize();
 	Keyboard_Initialize();
+
+	SetStage(pOJ, "Stage1Data.csv");
 	PlayerInitialize(pOJ);
 	
 	NoriuturiInitialize(pOJ);
@@ -96,9 +98,9 @@ void Game_Draw(void)
 		CameraSetting();
 		
 		LatticeDraw(); 
-		
-		PlayerDraw(pOJ);
+
 		NoriuturiDraw(pOJ);
+		PlayerDraw(pOJ);
 		LatticeDraw();
 
 		D3DXMatrixTranslation(&MtxT, g_Value+3, 0.5f, g_Value2);

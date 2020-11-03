@@ -45,7 +45,7 @@ void CameraUpDate(OBJData* Pj)
 
 	g_Position.z += -5.0f;
 	g_Position.y += 1.0f;
-	/*
+	
 	D3DXVECTOR3 dir(0.0f, 0.0f, 0.0f);
 	if (KeyLogger_Press(KL_BEFORE))
 	{
@@ -194,7 +194,7 @@ void CameraUpDate(OBJData* Pj)
 	g_Position += g_vMoveingSPD;
 	//ë¨ìxå∏êä
 	g_vMoveingSPD *= MOVEING_ACCEL;
-	*/
+	
 }
 void CameraSetting(void)
 {
