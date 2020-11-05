@@ -299,7 +299,7 @@ bool INitialize(HWND hw)
      return 0;
 	}
 	Game_initialize(0);
-	//DebugFont_initialize();
+	DebugFont_initialize();
 	SystemTimer_Initialize();
 	DX98Initialize();
 
@@ -351,7 +351,7 @@ void Finalize(void)
 //	DebugPrimitiv_Finalize();
 	KeyLogger_Finalize();
 	SpriteFinalaise();
-	//DebugFont_finalize();
+	DebugFont_finalize();
 	//お片付けのしかた:テク姉はデバ姉に教えてもらってきてる、テクスチャいらないなってなったらテク姉はバイバイしないといけない
 	Game_Finalize();
 	MyDirect3D_Finalize();

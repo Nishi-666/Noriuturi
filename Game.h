@@ -12,6 +12,7 @@ void Game_Finalize(void);
 void StateChange(int CData);
 void LifeMinus();
 void StageAdd();
-
+void Game_Reset(void);
 void StageNex(void);
 int GetStage();
+void StateChange(int st);

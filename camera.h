@@ -12,7 +12,7 @@ xz平面グリット描画(DebugLattice.h)
 //Count=一遍のグリット数
 //Collar=グリットカラー
 void CameraInit(void);
-void CameraUpDate(OBJData* Pj);
+void CameraUpDate(OBJData* Pj, int State);
 void CameraSetting(void);
 const D3DXVECTOR3& camera_GetFlontVector(void);
 const D3DXVECTOR3& camera_GetPos(void);

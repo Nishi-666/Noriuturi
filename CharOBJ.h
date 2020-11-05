@@ -9,6 +9,6 @@ typedef struct
 	D3DXVECTOR3 Size;
 	bool Existence;//ë∂ç›Ç∑ÇÈÇ©
 	int Life;
-	char Type[2];//PL:player
+	int Type;//0:player
 	int TextureID = TEXTURE_INVALID_ID;
 }OBJData;

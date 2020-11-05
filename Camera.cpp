@@ -16,7 +16,7 @@ static D3DXVECTOR3 g_vMoveingSPD(0.0f, 0.0f, 0.0f);
 #define MOVEING_SPD_MAX (1.0f)
 #define MOVEING_ATTE_NUATION_RATE (0.8f)
 static float g_ROTSPD = .1f;
-
+bool tes=false;
 
 
 void CameraInit(void)
@@ -38,15 +38,26 @@ void CameraInit(void)
 	g_vMoveingSPD = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
 }
-void CameraUpDate(OBJData* Pj)
+void CameraUpDate(OBJData* Pj,int State)
 {
-	
-	g_Position = CharOBJGetPos(Pj, 0+ GetYChange());
+	//if (!tes && Pj->TextureID!=-1)
+ if (State == 1)
+	{
+		g_vFront.y = -0.5f;
+		g_Position = CharOBJGetPos(Pj, 0 + GetYChange());
 
-	g_Position.z += -5.0f;
-	g_Position.y += 1.0f;
+	}else
+	{
+		g_vFront.y = 0.0f;
+		g_Position = CharOBJGetPos(Pj, 1024);
+		g_Position.y = -1;
+	}
+		g_Position.z += -5.0f;
+		g_Position.y += 1.0f;
+
 	
 	D3DXVECTOR3 dir(0.0f, 0.0f, 0.0f);
+	/*
 	if (KeyLogger_Press(KL_BEFORE))
 	{
 		D3DXVECTOR3 v = g_vFront;
@@ -194,7 +205,8 @@ void CameraUpDate(OBJData* Pj)
 	g_Position += g_vMoveingSPD;
 	//ë¨ìxå∏êä
 	g_vMoveingSPD *= MOVEING_ACCEL;
-	
+	*/
+
 }
 void CameraSetting(void)
 {

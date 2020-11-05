@@ -14,7 +14,7 @@ void drawLineW(IDirect3DDevice9* dev, float sx, float sy, float sz, float ex, fl
 void drawRectW(IDirect3DDevice9* dev, float l, float t, float w, float h, DWORD color);
 void drawTextMetrics(IDirect3DDevice9 *dev, TEXTMETRIC tm, GLYPHMETRICS gm, int ox, int oy);
 
-void FontDRAW(int ox, int oy, float Size, int SetNum);
+void FontDRAW(int ox, int oy,int oz, float Size, int SetNum);
 void FontDRAW(int FontNum);
 
 void FontSet(const wchar_t Words[], int SetNum);

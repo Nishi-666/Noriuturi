@@ -192,7 +192,7 @@ void FontSet(const wchar_t Words[],int SetNum)
 	
 	return;
 }
-void FontDRAW(int ox, int oy,float Size,int SetNum)
+void FontDRAW(int ox, int oy, int oz, float Size, int SetNum)
 {
 	
 	// 単位フォントポリゴン作成
@@ -236,7 +236,7 @@ void FontDRAW(int ox, int oy,float Size,int SetNum)
 
 			for (int i = 0; i < TexSize[SetNum]; i++)
 			{
-				D3DXMatrixTranslation(&worldOffset, (float)-ox + (300 * i) - 0.5f, (float)-oy + 0.5f, 0.0f);
+				D3DXMatrixTranslation(&worldOffset, (float)-ox + ((300)* i) - 0.5f, (float)-oy + 0.5f,oz+80.0f);
 				world = localMat * worldOffset;
 				// 描画
 				g_pD3DDev->SetTransform(D3DTS_WORLD, &world);
