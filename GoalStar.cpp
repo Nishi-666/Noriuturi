@@ -51,6 +51,18 @@ void GoalStarDraw(void)
 		}
 	}
 }
+
+
+void ENDStarDraw(void)
+{
+	for (int i = 1; i < 4; i++)
+	{
+		if(GoalStarGet[i])
+		{
+			Cube_Draw(&SetTransform(-4+(2*i), 0,-1.1, 0, 0, 0, 0.5f, 0.5f, 0.5f), g_BoxTextureId[i]);
+		}
+	}
+}
 int GoalStarJudgment(D3DXVECTOR3 pos)
 {	//ゴール=戻り値0,スター=戻り値1~3までの設定したposの位置
 	//該当なし=-1

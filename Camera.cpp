@@ -115,7 +115,6 @@ void CameraUpDate(OBJData* Pj,int State)
 	//何も考えたくない時はD3DXVec3TransformCoordを使うべし
 	//・D3DXVec3TransformNormal  :座標変換すると3次元ベクトルで出力、ｗ＝0を追加して演算、w成分を削除
 
-
 	if (KeyLogger_Press(KL_UPRowling))
 	{
 		D3DXMATRIX mtxR;
@@ -190,6 +189,7 @@ void CameraUpDate(OBJData* Pj,int State)
 		D3DXVec3TransformNormal(&g_vRight, &g_vRight, &mtxR);
 		D3DXVec3TransformNormal(&g_vUp, &g_vUp, &mtxR);
 	}
+	*/
 	//加速度の計算
 	D3DXVec3Normalize(&dir, &dir);
 	g_vMoveingSPD += dir * MOVEING_ACCEL;
@@ -205,7 +205,7 @@ void CameraUpDate(OBJData* Pj,int State)
 	g_Position += g_vMoveingSPD;
 	//速度減衰
 	g_vMoveingSPD *= MOVEING_ACCEL;
-	*/
+	
 
 }
 void CameraSetting(void)
