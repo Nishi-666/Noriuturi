@@ -66,12 +66,12 @@ D3DXVECTOR3 CharOBJGetSize(OBJData* Pj, int Type, int Num)//“–ŠYType‚ÌNum”Ô–Ú‚Ìp
 	return (Pj + s)->Size;
 }
 
-int CharOBJGetType(OBJData* Pj, int x, int y)//“–ŠYType‚ÌNum”Ô–Ú‚Ìpos‚ðŠm•Û
+int CharOBJGetType(OBJData* Pj, int x, int z)//“–ŠYType‚ÌNum”Ô–Ú‚Ìpos‚ðŠm•Û
 {
 
 	for (int i = 1; i < 1024; i++)
 	{
-		if ((int)(Pj+i)->Pos.x == x && (int)(Pj + i)->Pos.y == y)
+		if ((int)(Pj+i)->Pos.x == x && (int)(Pj + i)->Pos.z == z)
 		{
 			return (Pj + i)->Type;
 		}

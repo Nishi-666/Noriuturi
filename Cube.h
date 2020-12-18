@@ -16,4 +16,5 @@ void Cube_initialize(void);
 void Cube_Update(void);
 void Cube_Draw(D3DXMATRIX* pMtxWorld, int RBoxTextureId);
 void Cube_DrawALL(D3DXMATRIX* pMtxWorld, int RBoxTextureId);
+void Cube_DrawSetSys(D3DXMATRIX* pMtxWorld, int RBoxTextureId, int Num);
 void Cube_Finalize(void);

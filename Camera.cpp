@@ -21,7 +21,7 @@ bool tes=false;
 
 void CameraInit(void)
 {
-	 g_vFront= D3DXVECTOR3(0.0f, -0.5f, 1.0f);
+	 g_vFront= D3DXVECTOR3(0.0f, -0.0f, 1.0f);
 	g_vRight= D3DXVECTOR3(1.0f, 0.0f, 0.0f);
 
 	
@@ -41,18 +41,23 @@ void CameraInit(void)
 void CameraUpDate(OBJData* Pj,int State)
 {
 	//if (!tes && Pj->TextureID!=-1)
- if (State == 1)
+ if (State == 1)//–{•Ò
 	{
-		g_vFront.y = -0.5f;
-		g_Position = CharOBJGetPos(Pj, 0 + GetYChange());
+		g_vFront.y = -2.0f;
 
-	}else
+		g_Position = { 0,2,0 };
+		//g_Position = D3DXVECTOR3(6,3,-6);//CharOBJGetPos(Pj, 0 + GetYChange());
+		g_Position.y-= -6.5f;
+		g_Position.z += -6.0f;
+		g_Position.x += -3.0f;
+	
+	}else///Title“™
 	{
 		g_vFront.y = 0.0f;
 		g_Position = CharOBJGetPos(Pj, 1024);
 		g_Position.y = -1;
-	}
 		g_Position.z += -5.0f;
+	}
 		g_Position.y += 1.0f;
 
 	

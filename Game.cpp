@@ -21,7 +21,10 @@
 #include "GoalStar.h"
 #include "Wall.h"
 #include "StartClearOverScreen.h"
+#include "Enemy.h"
 #include "GoalStar.h"
+#include "Ice.h"
+#include"MoveGimmick.h"
 static float f=0;
 static int frame=0;
 int Life = 3;
@@ -63,15 +66,17 @@ bool Game_initialize(bool N98)
 	Triangle_initialize();
 	KeyLogger_initialize();
 	Keyboard_Initialize();
-
 	SetTex();
 	SetStage(pOJ, "Asset\\Stage_01.csv",12,12);
-	LatticeInit(1.0f, 10, D3DCOLOR_RGBA(255, 255, 255, 255));
-	
-	NoriuturiInitialize(pOJ);
+	LatticeInit(1.0f, 11, D3DCOLOR_RGBA(255, 255, 255, 255));
+	ICEInitialize(pOJ);
+			//NoriuturiInitialize(pOJ);
+
+	MoveGimmickInitialize(pOJ);
 	SCOInit(pOJ);
 	 WallInitialize(pOJ);
 	 PlayerInitialize(pOJ);
+	 EnemyInitialize(pOJ);
 	 SetLife(pOJ, 5);
 	 g_pDevice = MyDirect3D_GetDevice();
 	 return true;
@@ -96,9 +101,12 @@ void Game_Update(void)
 		//g_Value2 =cosf(g_angle)*5.0f;
 
 		Cube_Update();
+		EnemyUpdate(pOJ);
 		PlayerUpdate(pOJ);
 		WallUpdate(pOJ);
-		NoriuturiUpdate(pOJ);
+		//NoriuturiUpdate(pOJ);
+		ICEUpdate(pOJ);
+		MoveGimmickUpdate(pOJ);
 		Triangle_Update();
 	}
 	else
@@ -117,10 +125,12 @@ void Game_Draw(void)
 
 			LatticeDraw();
 			GoalStarDraw();
-
-			NoriuturiDraw(pOJ);
+			ICEDraw(pOJ);
+			//NoriuturiDraw(pOJ);
 			WallDraw(pOJ);
+			EnemyDraw(pOJ);
 			PlayerDraw(pOJ);
+			MoveGimmickDraw(pOJ);
 			D3DXMatrixTranslation(&MtxT, g_Value + 3, 0.5f, g_Value2);
 			//D3DXMatrixScaling(&MtxS, 10, 10, 10);
 		//	D3DXMatrixRotationY(&MtxR, g_angle);
@@ -148,8 +158,11 @@ void Game_Finalize(void)
 {
 	KeyLogger_Finalize(); 
 	PlayerFinalize(pOJ);
-	NoriuturiFinalize(pOJ);
+	EnemyFinalize(pOJ);
+	ICEFinalize(pOJ);
+	//NoriuturiFinalize(pOJ);
 	WallFinalize(pOJ);
+	MoveGimmickFinalize(pOJ);
 	 Cube_Finalize();
 	LatticeFnalize();
 	SCOUnInit();
@@ -189,5 +202,6 @@ void Game_Reset(void)
 
 	WallInitialize(pOJ);
 	PlayerInitialize(pOJ);
-	SetLife(pOJ, 5);
+	EnemyInitialize(pOJ);
+	SetLife(pOJ,5);
 }

@@ -7,10 +7,17 @@
 D3DXVECTOR3 GoalStarPos[4] = {};
 int g_BoxTextureId[4]={ TEXTURE_INVALID_ID , TEXTURE_INVALID_ID , TEXTURE_INVALID_ID , TEXTURE_INVALID_ID };
 __int8 StarDifficulty[3] = {};
+int StarMaxLife[3] = {};
+int StarLife[3] = {};
 bool GoalStarGet[4] = {};
 bool GoalStarExistence[4];
 void SetTex(void)
 {
+	for (int i = 0; i < 3; i++)
+	{
+		StarLife[i] = StarMaxLife[i] =3;
+	}
+
 	g_BoxTextureId[0] = Texture_SetTextureLoadFile("Asset\\Goal.png"); 
 	if (Texture_Load() > 0)
 	{
@@ -47,7 +54,7 @@ void GoalStarDraw(void)
 	{
 		if (GoalStarExistence[i])
 		{
-			Cube_Draw(&SetTransform(GoalStarPos[i].x, GoalStarPos[i].y, GoalStarPos[i].z, 0, 0, 0, 0.5f, 0.5f, 0.5f), g_BoxTextureId[i]);
+			Cube_Draw(&SetTransform(GoalStarPos[i].x, GoalStarPos[i].y, GoalStarPos[i].z, 0, 0, 0, 1,1, 1), g_BoxTextureId[i]);
 		}
 	}
 }
@@ -59,7 +66,7 @@ void ENDStarDraw(void)
 	{
 		if(GoalStarGet[i])
 		{
-			Cube_Draw(&SetTransform(-4+(2*i), 0,-1.1, 0, 0, 0, 0.5f, 0.5f, 0.5f), g_BoxTextureId[i]);
+			Cube_Draw(&SetTransform(-4+(2*i), 0,-1.1, 0, 0, 0, 1, 1, 1), g_BoxTextureId[i]);
 		}
 	}
 }
